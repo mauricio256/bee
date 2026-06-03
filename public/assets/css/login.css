@@ -1,0 +1,306 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#111;
+    height:100vh;
+    overflow:hidden;
+}
+
+.container{
+    display:flex;
+    width:100%;
+    height:100vh;
+}
+
+/* HERO */
+
+.hero{
+    flex:1;
+    background:#ffc107;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    color:#111;
+}
+
+.logo{
+    position:absolute;
+    top:30px;
+    left:40px;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.hero h2{
+    margin-top:30px;
+    font-size:42px;
+}
+
+.hero p{
+    max-width:420px;
+    text-align:center;
+    margin-top:15px;
+    line-height:1.6;
+    font-size:18px;
+}
+
+/* ABELHA */
+
+.bee-flight{
+    position:relative;
+    width:300px;
+    height:120px;
+}
+
+.bee{
+    position:absolute;
+    font-size:48px;
+    animation:
+        beeFly 10s linear infinite,
+        beeHover .3s ease-in-out infinite alternate;
+}
+
+@keyframes beeFly{
+
+    0%{
+        transform:translate(0px,0px);
+    }
+
+    20%{
+        transform:translate(80px,-25px);
+    }
+
+    40%{
+        transform:translate(180px,10px);
+    }
+
+    60%{
+        transform:translate(250px,-20px);
+    }
+
+    80%{
+        transform:translate(100px,30px);
+    }
+
+    100%{
+        transform:translate(0px,0px);
+    }
+
+}
+
+@keyframes beeHover{
+
+    from{
+        margin-top:0;
+    }
+
+    to{
+        margin-top:-4px;
+    }
+
+}
+
+/* FAVOS */
+
+.honeycomb{
+    display:grid;
+    grid-template-columns:repeat(3,90px);
+    gap:12px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.hex{
+    width:90px;
+    height:90px;
+    background:#111;
+
+    clip-path:polygon(
+        25% 6%,
+        75% 6%,
+        100% 50%,
+        75% 94%,
+        25% 94%,
+        0% 50%
+    );
+}
+
+.active{
+    animation:pulseHex 2s infinite;
+}
+
+@keyframes pulseHex{
+
+    50%{
+        transform:scale(1.08);
+    }
+
+}
+
+/* LOGIN */
+
+.login-area{
+    flex:1;
+    background:#181818;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-card{
+    width:430px;
+    background:#242424;
+    border-radius:20px;
+    padding:45px;
+    box-shadow:0 10px 35px rgba(0,0,0,.4);
+}
+
+.login-card h1{
+    color:#fff;
+    font-size:38px;
+}
+
+.subtitle{
+    color:#999;
+    margin-top:10px;
+    margin-bottom:30px;
+}
+
+.alert{
+    background:#ffe082;
+    color:#111;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+/* FORM */
+
+.input-group{
+    margin-bottom:20px;
+}
+
+.input-group label{
+    display:block;
+    color:#ccc;
+    margin-bottom:8px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#333;
+    color:white;
+}
+
+input:focus{
+    outline:none;
+    box-shadow:0 0 0 2px #ffc107;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#ffc107;
+    color:#111;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#ffca28;
+}
+
+button:disabled{
+    opacity:.7;
+}
+
+/* LOADER */
+
+#loader{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.85);
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+.loader-content{
+    text-align:center;
+}
+
+.spinner{
+    width:70px;
+    height:70px;
+
+    border:6px solid #333;
+    border-top:6px solid #ffc107;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+}
+
+.loader-content h3{
+    color:white;
+    margin-top:20px;
+}
+
+.loader-content p{
+    color:#aaa;
+    margin-top:10px;
+}
+
+@keyframes spin{
+
+    100%{
+        transform:rotate(360deg);
+    }
+
+}
+
+/* RESPONSIVO */
+
+@media(max-width:900px){
+
+    body{
+        overflow:auto;
+    }
+
+    .container{
+        flex-direction:column;
+    }
+
+    .hero{
+        min-height:45vh;
+    }
+
+    .login-area{
+        min-height:55vh;
+        padding:20px;
+    }
+
+    .login-card{
+        width:100%;
+        max-width:430px;
+    }
+
+}
