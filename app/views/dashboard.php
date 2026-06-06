@@ -1,120 +1,154 @@
-<h1>Dashboard</h1>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bee ERP - Dashboard</title>
 
-<p>Bem-vindo, <?= $_SESSION['user']['nome']; ?></p>
+    <link rel="stylesheet" href="/bee/public/assets/css/dashboard.css">
+</head>
+<body>
 
-<hr>
+<div class="dashboard">
 
-<h2>Cadastros</h2>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
 
-<ul>
-    <li><a href="?url=clientes">Clientes</a></li>
-    <li><a href="?url=fornecedores">Fornecedores</a></li>
-   <a href="?url=produtos">Produtos</a>
-    <li><a href="?url=categorias">Categorias</a></li>
-    <li><a href="?url=usuarios">Funcionários</a></li>
-</ul>
+        <div class="brand">
+            🐝 Bee ERP
+        </div>
 
-<hr>
+        <nav>
 
-<h2>Estoque</h2>
+            <a href="?url=clientes">👥 Clientes</a>
 
-<ul>
-    <li><a href="?url=estoque">Consultar Estoque</a></li>
-    <li><a href="?url=movimentacoes">Movimentações</a></li>
-    <li><a href="?url=ajuste-estoque">Ajuste de Estoque</a></li>
-    <li><a href="?url=estoque-minimo">Estoque Mínimo</a></li>
-</ul>
+            <a href="?url=fornecedores">🚚 Fornecedores</a>
 
-<hr>
+            <a href="?url=produtos">📦 Produtos</a>
 
-<h2>Compras</h2>
+            <a href="?url=categorias">🏷️ Categorias</a>
 
-<ul>
-    <li><a href="?url=nova-compra">Nova Compra</a></li>
-    <li><a href="?url=compras">Listar Compras</a></li>
-    <li><a href="?url=compras-pendentes">Compras Pendentes</a></li>
-</ul>
+            <a href="?url=funcionarios">👨‍💼 Funcionários</a>
 
-<hr>
+            <a href="?url=estoque">🏪 Estoque</a>
 
-<h2>Vendas</h2>
+            <a href="?url=compras">🛒 Compras</a>
 
-<ul>
-    <li><a href="?url=pdv">PDV</a></li>
-    <li><a href="?url=vendas">Histórico de Vendas</a></li>
-    <li><a href="?url=devolucoes">Devoluções</a></li>
-</ul>
+            <a href="?url=vendas">💰 Vendas</a>
 
-<hr>
+            <a href="?url=financeiro">📈 Financeiro</a>
 
-<h2>Caixa</h2>
+            <a href="?url=relatorios">📊 Relatórios</a>
 
-<ul>
-    <li><a href="?url=abrir-caixa">Abrir Caixa</a></li>
-    <li><a href="?url=fechar-caixa">Fechar Caixa</a></li>
-    <li><a href="?url=movimentos-caixa">Movimentações</a></li>
-    <li><a href="?url=sangria">Sangria</a></li>
-    <li><a href="?url=reforco">Reforço</a></li>
-</ul>
+            <a href="?url=configuracoes">⚙️ Configurações</a>
 
-<hr>
+        </nav>
 
-<h2>Financeiro</h2>
+    </aside>
 
-<ul>
-    <li><a href="?url=contas-receber">Contas a Receber</a></li>
-    <li><a href="?url=contas-pagar">Contas a Pagar</a></li>
-    <li><a href="?url=receitas">Receitas</a></li>
-    <li><a href="?url=despesas">Despesas</a></li>
-    <li><a href="?url=fluxo-caixa">Fluxo de Caixa</a></li>
-</ul>
+    <!-- CONTEÚDO -->
+    <main class="content">
 
-<hr>
+        <header class="topbar">
 
-<h2>Fiscal</h2>
+            <div>
+                <h1>Dashboard</h1>
 
-<ul>
-    <li><a href="?url=emitir-nfe">Emitir NF-e</a></li>
-    <li><a href="?url=notas-fiscais">Notas Emitidas</a></li>
-    <li><a href="?url=xml-notas">XML das Notas</a></li>
-</ul>
+                <p>
+                    Bem-vindo,
+                    <strong><?= $_SESSION['user']['nome']; ?></strong>
+                </p>
+            </div>
 
-<hr>
+            <a href="?url=logout" class="logout">
+                Sair
+            </a>
 
-<h2>Relatórios</h2>
+        </header>
 
-<ul>
-    <li><a href="?url=rel-vendas">Vendas</a></li>
-    <li><a href="?url=rel-estoque">Estoque</a></li>
-    <li><a href="?url=rel-financeiro">Financeiro</a></li>
-    <li><a href="?url=rel-clientes">Clientes</a></li>
-    <li><a href="?url=rel-produtos">Produtos</a></li>
-</ul>
+        <!-- CARDS -->
 
-<hr>
+        <section class="cards">
 
-<h2>Administração</h2>
+            <a href="?url=clientes" class="card">
+                <span>👥</span>
+                <h3>Clientes</h3>
+                <p>Gerenciar clientes</p>
+            </a>
 
-<ul>
-    <li><a href="?url=usuarios">Usuários</a></li>
-    <li><a href="?url=permissoes">Permissões</a></li>
-    <li><a href="?url=logs">Logs</a></li>
-    <li><a href="?url=auditoria">Auditoria</a></li>
-</ul>
+            <a href="?url=fornecedores" class="card">
+                <span>🚚</span>
+                <h3>Fornecedores</h3>
+                <p>Gerenciar fornecedores</p>
+            </a>
 
-<hr>
+            <a href="?url=produtos" class="card">
+                <span>📦</span>
+                <h3>Produtos</h3>
+                <p>Cadastro de produtos</p>
+            </a>
 
-<h2>Configurações</h2>
+            <a href="?url=estoque" class="card">
+                <span>🏪</span>
+                <h3>Estoque</h3>
+                <p>Consultar estoque</p>
+            </a>
 
-<ul>
-    <li><a href="?url=empresa">Dados da Empresa</a></li>
-    <li><a href="?url=impostos">Impostos</a></li>
-    <li><a href="?url=backup">Backup</a></li>
-    <li><a href="?url=configuracoes">Configurações Gerais</a></li>
-</ul>
+            <a href="?url=compras" class="card">
+                <span>🛒</span>
+                <h3>Compras</h3>
+                <p>Registrar compras</p>
+            </a>
 
-<hr>
+            <a href="?url=vendas" class="card">
+                <span>💰</span>
+                <h3>Vendas</h3>
+                <p>Histórico de vendas</p>
+            </a>
 
-<p>
-    <a href="?url=logout">Sair do Sistema</a>
-</p>
+            <a href="?url=financeiro" class="card">
+                <span>📈</span>
+                <h3>Financeiro</h3>
+                <p>Fluxo de caixa</p>
+            </a>
+
+            <a href="?url=relatorios" class="card">
+                <span>📊</span>
+                <h3>Relatórios</h3>
+                <p>Visualizar relatórios</p>
+            </a>
+
+        </section>
+
+        <!-- RESUMO -->
+
+        <section class="overview">
+
+            <div class="overview-card">
+                <h4>Clientes</h4>
+                <span><?= $totalClientes ?? 0 ?></span>
+            </div>
+
+            <div class="overview-card">
+                <h4>Produtos</h4>
+                <span><?= $totalProdutos ?? 0 ?></span>
+            </div>
+
+            <div class="overview-card">
+                <h4>Vendas Hoje</h4>
+                <span>R$ 0,00</span>
+            </div>
+
+            <div class="overview-card">
+                <h4>Estoque Baixo</h4>
+                <span>0</span>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

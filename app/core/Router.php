@@ -4,6 +4,9 @@ require_once '../app/core/Controller.php';
 require_once '../app/controllers/AuthController.php';
 require_once '../app/controllers/CategoriaController.php';
 require_once '../app/controllers/ProdutoController.php';
+require_once '../app/controllers/ClienteController.php';
+require_once '../app/controllers/FuncionarioController.php';
+require_once '../app/controllers/FornecedorController.php';
 
 
 class Router {
@@ -107,6 +110,98 @@ class Router {
                 $controller->delete();
 
             break;
+
+            ///////////////////////// clientes
+            case 'clientes':
+
+                $controller = new ClienteController();
+                $controller->index();
+
+            break;
+
+            case 'cliente-create':
+
+                $controller = new ClienteController();
+                $controller->create();
+
+            break;
+
+            case 'cliente-edit':
+
+                $controller = new ClienteController();
+                $controller->edit();
+
+            break;
+
+            case 'cliente-delete':
+
+                $controller = new ClienteController();
+                $controller->delete();
+
+            break;
+
+            ///////////////////////// funcionarios
+            case 'funcionarios':
+
+                $controller = new FuncionarioController();
+                $controller->index();
+
+            break;
+
+            case 'funcionario-create':
+
+                $controller = new FuncionarioController();
+                $controller->create();
+
+            break;
+
+            case 'funcionario-edit':
+
+                $controller = new FuncionarioController();
+                $controller->edit();
+
+            break;
+
+            case 'funcionario-delete':
+
+                $controller = new FuncionarioController();
+                $controller->delete();
+
+            break;
+            
+            ///////////////////////// fornecedores
+            case 'fornecedores':
+
+                $controller = new FornecedorController();
+                $controller->index();
+
+            break;
+
+            case 'fornecedor-create':
+
+                $controller = new FornecedorController();
+                $controller->create();
+
+            break;
+
+            case 'fornecedor-edit':
+
+                $controller = new FornecedorController();
+                $controller->edit();
+
+            break;
+
+            case 'fornecedor-delete':
+
+                $controller = new FornecedorController();
+                $controller->delete();
+
+            break;
+
+
+
+
+            
             
             default:
                 echo "Página não encontrada";

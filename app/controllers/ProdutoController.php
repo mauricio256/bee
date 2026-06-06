@@ -7,13 +7,15 @@ require_once '../app/models/Categoria.php';
 
 class ProdutoController extends Controller {
 
-    public function index(){
+   public function index(){
 
         Auth::check();
 
         $produto = new Produto();
 
-        $produtos = $produto->listar();
+        $busca = $_GET['busca'] ?? '';
+
+        $produtos = $produto->listar($busca);
 
         require_once '../app/views/produtos/index.php';
     }

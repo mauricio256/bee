@@ -11,20 +11,34 @@ class Produto {
         $this->db = Database::connect();
     }
 
-    public function listar(){
+   public function listar($busca = null){
 
-        $sql = $this->db->query("
+        $sql = "
             SELECT
                 p.*,
                 c.nome AS categoria
             FROM produtos p
             LEFT JOIN categorias c
                 ON c.id = p.categoria_id
-            ORDER BY p.nome
-        ");
+        ";
 
-        return $sql->fetchAll(PDO::FETCH_ASSOC);
+        if($busca){
+            $sql .= " WHERE p.nome LIKE :busca ";
+        }
+
+        $sql .= " ORDER BY p.nome ";
+
+        $stmt = $this->db->prepare($sql);
+
+        if($busca){
+            $stmt->bindValue(':busca', "%{$busca}%");
+        }
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
 
     public function cadastrar($dados){
 
@@ -146,12 +160,19 @@ class Produto {
 
     public function todas(){
 
-    $sql = $this->db->query("
-        SELECT *
-        FROM categorias
-        ORDER BY nome
-    ");
+        $sql = $this->db->query("
+            SELECT *
+            FROM categorias
+            ORDER BY nome
+        ");
 
-    return $sql->fetchAll(PDO::FETCH_ASSOC);
-}
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function contar(){
+        $sql = $this->db->query("SELECT COUNT(*) as total FROM produtos");
+
+        return $sql->fetch()['total'];
+    }
+
 }

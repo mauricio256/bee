@@ -12,6 +12,27 @@
         </a>
     </p>
 
+  <form method="GET">
+
+    <input
+        type="hidden"
+        name="url"
+        value="produtos"
+    >
+
+    <input
+        type="text"
+        name="busca"
+        placeholder="Pesquisar produtos..."
+        value="<?= $_GET['busca'] ?? ''; ?>"
+    >
+
+    <button type="submit">
+        Buscar
+    </button>
+
+</form>  
+
 <table border="1">
 
     <tr>
