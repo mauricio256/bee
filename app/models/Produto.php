@@ -175,4 +175,21 @@ class Produto {
         return $sql->fetch()['total'];
     }
 
+    public function buscarPorCodigo($codigo){
+
+        $sql = $this->db->prepare("
+            SELECT *
+            FROM produtos
+            WHERE codigo_barras = :codigo
+            LIMIT 1
+        ");
+
+        $sql->execute([
+
+            ':codigo' => $codigo
+        ]);
+
+        return $sql->fetch(PDO::FETCH_ASSOC);
+    }
+
 }

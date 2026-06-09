@@ -2,7 +2,7 @@
 
 require_once '../app/core/Controller.php';
 require_once '../app/core/Auth.php';
-require_once '../app/models/Fornecedores.php';
+require_once '../app/models/Fornecedor.php';
 
 class FornecedorController extends Controller {
 

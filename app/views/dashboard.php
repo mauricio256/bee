@@ -95,7 +95,7 @@
             </a>
 
             <a href="?url=compras" class="card">
-                <span>🛒</span>
+                <span>📋</span>
                 <h3>Compras</h3>
                 <p>Registrar compras</p>
             </a>
@@ -104,6 +104,12 @@
                 <span>💰</span>
                 <h3>Vendas</h3>
                 <p>Histórico de vendas</p>
+            </a>
+
+            <a href="?url=pdv" class="card">
+                <span>🛒</span>
+                <h3>PDV</h3>
+                <p>Ponto de venda</p>
             </a>
 
             <a href="?url=financeiro" class="card">

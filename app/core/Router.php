@@ -7,6 +7,9 @@ require_once '../app/controllers/ProdutoController.php';
 require_once '../app/controllers/ClienteController.php';
 require_once '../app/controllers/FuncionarioController.php';
 require_once '../app/controllers/FornecedorController.php';
+require_once '../app/controllers/CompraController.php';
+require_once '../app/controllers/VendaController.php';
+require_once '../app/controllers/PdvController.php';
 
 
 class Router {
@@ -197,9 +200,149 @@ class Router {
                 $controller->delete();
 
             break;
+                /////////////////////// compras  
+                case 'compras':
 
+                    $controller = new CompraController();
+                    $controller->index();
 
+                break;
 
+                case 'compra-create':
+
+                    $controller = new CompraController();
+                    $controller->create();
+
+                break;
+
+                case 'compra-delete':
+
+                    $controller = new CompraController();
+                    $controller->delete();
+
+                break;
+
+                case 'compra-itens':
+
+                    $controller = new CompraController();
+
+                    $controller->itens();
+
+                break;
+
+                case 'compra-add-item':
+
+                    $controller = new CompraController();
+
+                    $controller->adicionarItem();
+
+                break;
+                
+                case 'compra-finalizar':
+
+                    $controller = new CompraController();
+
+                    $controller->finalizar();
+
+                break;
+
+                case 'compra-delete-item':
+
+                    $controller = new CompraController();
+
+                    $controller->deleteItem();
+
+                break;
+                /////////////////////// vendas
+                case 'vendas':
+
+                    $controller = new VendaController();
+
+                    $controller->index();
+
+                break;
+
+                case 'venda-create':
+
+                    $controller = new VendaController();
+
+                    $controller->create();
+
+                break;
+
+                case 'venda-itens':
+
+                    $controller = new VendaController();
+
+                    $controller->itens();
+
+                break;
+
+                case 'venda-add-item':
+
+                    $controller = new VendaController();
+
+                    $controller->adicionarItem();
+
+                break;
+
+                case 'venda-delete-item':
+
+                    $controller = new VendaController();
+
+                    $controller->deleteItem();
+
+                break;
+
+                case 'venda-finalizar':
+
+                    $controller = new VendaController();
+
+                    $controller->finalizar();
+
+                break;
+
+                //////// pdv
+
+                case 'pdv':
+
+                    $controller = new PdvController();
+
+                    $controller->index();
+
+                break;
+
+                case 'pdv-add':
+
+                    $controller = new PdvController();
+
+                    $controller->add();
+
+                break;
+
+                case 'pdv-remove':
+
+                    $controller = new PdvController();
+
+                    $controller->remove();
+
+                break;
+
+                case 'pdv-clear':
+
+                    $controller = new PdvController();
+
+                    $controller->clear();
+
+                break;
+
+                case 'pdv-finalizar':
+
+                    $controller = new PdvController();
+
+                    $controller->finalizar();
+
+                break;
 
             
             
